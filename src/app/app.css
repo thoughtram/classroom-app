@@ -1,0 +1,415 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-weight: 300;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6250em;
+}
+
+.thtrm-l-constraint {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 1400px;
+}
+
+.thtrm-l-main {
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  min-height: 100%;
+  padding-top: 70px;
+  padding-bottom: 100px;
+}
+
+.thtrm-l-is-login-page .thtrm-l-header {
+  position: absolute;
+}
+
+.thtrm-l-header {
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 1px 5px 0 rgba(0,0,0,.2);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.thtrm-l-header__bar {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  height: 100px;
+  padding: 0 60px;
+  position: relative;
+}
+
+.thtrm-l-header__logo {
+  color: #000;
+  float: none;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 100px;
+  text-indent: -7000px;
+  margin: 0;
+  padding: 0;
+  display: inherit;
+  background-image: url('../images/thoughtram-brain-with-logo-line-blue.png');
+  background-repeat: no-repeat;
+  background-size: 260px auto;
+  background-position: 0;
+  max-width: 260px;
+}
+
+.thtrm-l-header__bar__actions {
+  float: right;
+}
+
+.thtrm-l-header__bar__actions:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+
+.thtrm-l-header__bar__actions__navigation {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin-top: -3.7em;
+}
+.thtrm-l-header__bar__actions__navigation a {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.thtrm-l-header__bar__actions__navigation a:hover,
+.thtrm-l-header__bar__actions__navigation a:focus {
+  color: #4D8799;
+}
+.thtrm-l-header__bar__actions__navigation li {
+  display: inline-block;
+  margin-left: 1.5em;
+}
+.thtrm-l-header__bar__actions__navigation li:before {
+  content: '';
+}
+
+
+.wrapper {
+  position: fixed;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.thtrm-m-box {
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2)
+}
+
+.thtrm-m-loginbox {
+  padding: 30px 40px;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.thtrm-m-loginbox__text {
+  text-align: center;
+  font-family: arial;
+  font-weight: lighter;
+  margin-top: 25px;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #222;
+  max-width: 500px;
+}
+
+.thtrm-m-loginbox__text--fail {
+  color: #CA0707;
+}
+
+.thtrm-m-loginbox__avatar {
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.thtrm-m-login-headline {
+  font-weight: normal;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  font-size: 22px;
+  color: #444;
+}
+
+.login-button {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 1px solid #d4d4d4;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0 #fff;
+  font: 11px/normal sans-serif;
+  color: #333;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  background-color: #ececec;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+  background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+  background-image: -ms-linear-gradient(#f4f4f4, #ececec);
+  background-image: -o-linear-gradient(#f4f4f4, #ececec);
+  background-image: linear-gradient(#f4f4f4, #ececec);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-radius: 0.2em;
+  zoom: 1;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-button:hover {
+  border-color: #3072b3;
+  border-bottom-color: #2a65a0;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+  color: #fff;
+  background-color: #3c8dde;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+  background-image: -moz-linear-gradient(#599bdc, #3072b3);
+  background-image: -o-linear-gradient(#599bdc, #3072b3);
+  background-image: linear-gradient(#599bdc, #3072b3);
+}
+
+.thtrm-m-dropdown {
+  margin-top: -4.5em;
+  position: relative;
+}
+
+.thtrm-m-dropdown:hover {
+  cursor: pointer;
+}
+
+
+.thtrm-m-dropdown__avatar {
+  border-radius: 50%;
+  width: 50px;
+  display: block;
+  margin-right: 24px;
+}
+.thtrm-m-dropdown:after {
+  position: absolute;
+  content: '';
+  top: 24px;
+  right: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #ccc;
+}
+.thtrm-m-dropdown:hover.thtrm-m-dropdown:after {
+  border-top-color: rgb(77, 135, 153);
+}
+
+.thtrm-m-dropdown__menu {
+  position: absolute;
+  display: none;
+  bottom: 0;
+  top: 22px;
+  right: 0;
+  width: 200px;
+  height: 50px;
+}
+.thtrm-m-dropdown__menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 3px 4px 0 rgba(0,0,0,.2);
+  font-size: 14px;
+  text-align: center;
+}
+
+.thtrm-m-dropdown:hover .thtrm-m-dropdown__menu {
+  display: block;
+}
+
+.thtrm-m-dropdown__menu__item {
+  background: #fff;
+}
+
+.thtrm-m-dropdown__menu__item:first-child {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #888;
+  border-bottom: 1px solid #ddd;
+}
+.thtrm-m-dropdown__menu__item:first-child.thtrm-m-dropdown__menu__item:hover {
+  cursor: default;
+}
+
+.thtrm-m-dropdown__menu__item a {
+  text-decoration: none;
+  color: #222;
+  display: inline-block;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.thtrm-m-dropdown__menu__item:first-child a {
+  border-top: 0;
+}
+
+.thtrm-m-dropdown__menu__item a:hover {
+  color: rgb(77, 135, 153);
+}
+
+.thtrm-m-course-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.thtrm-m-course-list li {
+  display: inline-block;
+  margin-left: 32px;
+  margin-top: 2em;
+  vertical-align: top;
+}
+
+.thtrm-m-course-list--big {
+  margin-left: 86px;
+}
+
+.thtrm-m-course-box {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+  width: 300px;
+  transition: all ease-in 120ms;
+}
+
+.thtrm-m-course-box--big {
+  width: 550px;
+}
+
+.thtrm-m-course-box--disabled {
+  opacity: 0.5;
+}
+
+.thtrm-m-course-box--big .thtrm-m-course-box__banner {
+  height: 200px;
+}
+
+.thtrm-m-course-box--big .thtrm-m-course-box__headline {
+  font-size: 24px;
+}
+
+.thtrm-m-course-box:hover {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.16),0 5px 10px 0 rgba(0,0,0,.3);
+}
+
+.thtrm-m-course-box:hover .thtrm-m-course-box__headline,
+.thtrm-m-course-box:hover .thtrm-m-course-box__description {
+  color: rgb(77, 135, 153);
+}
+
+.thtrm-m-course-box--inactive {
+  color: #ccc;
+}
+.thtrm-m-course-box--inactive:hover {
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+  transition: none;
+  cursor: default;
+}
+.thtrm-m-course-box--inactive:hover .thtrm-m-course-box__headline,
+.thtrm-m-course-box--inactive:hover .thtrm-m-course-box__description {
+  color: #ccc;
+}
+
+.thtrm-m-course-box__banner {
+  background: #ddd;
+  height: 120px;
+}
+
+.thtrm-m-course-box__content {
+  padding: 1em;
+}
+
+.thtrm-m-course-box__headline {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color ease-in 120ms;
+}
+
+.thtrm-m-course-box__description {
+  margin-bottom: 0;
+  line-height: 24px;
+  margin-top: 10px;
+  transition: color ease-in 120ms;
+}
+
+.thtrm-m-course-headline {
+  font-weight: normal;
+  font-size: 32px;
+  padding-left: 1em;
+  margin-top: 0;
+}
+
+.thtrm-m-course-description {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.thtrm-m-back-button {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    color: hsl(194, 33%, 45%);
+    font-weight: bold;
+    background-color: hsl(0, 0%, 94%);
+}
