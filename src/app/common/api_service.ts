@@ -1,8 +1,13 @@
 export class ApiService {
   cache:any = {};
+  defaultErrorHandler: (any) => any = null;
 
   constructor (private $http: any, private config: any) {
 
+  }
+
+  setDefaultErrorHandler (errorHandler: (any) => any) {
+    this.defaultErrorHandler = errorHandler;
   }
 
   getWorkshops () {
@@ -12,7 +17,7 @@ export class ApiService {
                                   url: this.config.API_ENDPOINT + '/secure/workshops',
                                   withCredentials: true
                                 })
-                                .then(response => response.data.items);
+                                .then(response => response.data.items, this.defaultErrorHandler);
     }
 
     return this.cache.workshops;
@@ -20,7 +25,10 @@ export class ApiService {
 
   getWorkshop (name) {
     return this.getWorkshops()
-               .then(workshops => workshops.find(workshop => workshop.classroom_url === name))
+               .then(
+                 workshops => workshops.find(workshop => workshop.classroom_url === name),
+                 this.defaultErrorHandler
+               )
   }
 
 
@@ -32,7 +40,7 @@ export class ApiService {
                               url: this.config.API_ENDPOINT + '/secure/user',
                               withCredentials: true
                             })
-                            .then(response => response.data.item);
+                            .then(response => response.data.item, this.defaultErrorHandler);
     }
 
     return this.cache.user;

@@ -16,6 +16,7 @@
         "src/app/common/api_service.ts",
         "src/app/common/config.ts",
         "src/app/components/header/header.ts",
+        "src/app/components/login/login.ts",
         "src/app/components/slidedeck/location_patchup_service.ts",
         "src/app/components/slidedeck/slidedeck.ts",
         "src/app/components/workshop_list/workshop_list.ts",

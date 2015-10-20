@@ -6,16 +6,26 @@ import {ClassroomHeaderModule} from './components/header/header';
 import {ClassroomWorkshopListModule} from './components/workshop_list/workshop_list';
 import {ClassroomWorkshopModule} from './components/workshop/workshop';
 import {ClassroomSlidedeckModule} from './components/slidedeck/slidedeck';
+import {ClassroomLoginModule} from './components/login/login';
 
 var app = angular.module('classroom', [
   'ui.router',
   ClassroomHeaderModule.name,
   ClassroomWorkshopListModule.name,
   ClassroomWorkshopModule.name,
-  ClassroomSlidedeckModule.name
+  ClassroomSlidedeckModule.name,
+  ClassroomLoginModule.name
 ]);
 
 app.service('apiService', ApiService);
+app.run((apiService, $state, $location, $q) => {
+  apiService.setDefaultErrorHandler((response) => {
+    if (response.status === 401) {
+      $state.go('login', {jump_to: $location.path() });
+    }
+    return $q.reject(response);
+  })
+});
 app.value('config', CONFIG);
 
 app.config(($stateProvider, $urlRouterProvider) => {
