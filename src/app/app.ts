@@ -18,7 +18,7 @@ var app = angular.module('classroom', [
 ]);
 
 app.service('apiService', ApiService);
-app.run((apiService, $state, $location, $q) => {
+app.run((apiService: ApiService, $state: any, $location: ng.ILocationService, $q: ng.IQService) => {
   apiService.setDefaultErrorHandler((response) => {
     if (response.status === 401) {
       $state.go('login', {jump_to: $location.path() });
@@ -28,7 +28,7 @@ app.run((apiService, $state, $location, $q) => {
 });
 app.value('config', CONFIG);
 
-app.config(($stateProvider, $urlRouterProvider) => {
+app.config(($stateProvider: any, $urlRouterProvider: any) => {
   $stateProvider
     .state('default', {
       abstract: true,

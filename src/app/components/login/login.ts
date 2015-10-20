@@ -13,13 +13,13 @@
             </div>
           </div>`,
         controllerAs: 'ctrl',
-        controller: function (config, $stateParams) {
+        controller: function (config: any, $stateParams: any) {
           this.apiEndpoint = config.API_ENDPOINT;
           this.jumpTo = $stateParams.jump_to;
         }
     };
   })
-  .config(($stateProvider) => {
+  .config(($stateProvider: any) => {
     $stateProvider
       .state('login', {
         url: '/login?jump_to',

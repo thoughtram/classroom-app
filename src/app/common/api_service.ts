@@ -1,12 +1,12 @@
 export class ApiService {
   cache:any = {};
-  defaultErrorHandler: (any) => any = null;
+  defaultErrorHandler: (response: any) => any = null;
 
   constructor (private $http: any, private config: any) {
 
   }
 
-  setDefaultErrorHandler (errorHandler: (any) => any) {
+  setDefaultErrorHandler (errorHandler: (response: any) => any) {
     this.defaultErrorHandler = errorHandler;
   }
 
@@ -17,16 +17,16 @@ export class ApiService {
                                   url: this.config.API_ENDPOINT + '/secure/workshops',
                                   withCredentials: true
                                 })
-                                .then(response => response.data.items, this.defaultErrorHandler);
+                                .then((response:any) => response.data.items, this.defaultErrorHandler);
     }
 
     return this.cache.workshops;
   }
 
-  getWorkshop (name) {
+  getWorkshop (name: string) {
     return this.getWorkshops()
                .then(
-                 workshops => workshops.find(workshop => workshop.classroom_url === name),
+                 (workshops: Array<any>) => (<any>workshops).find((workshop:any) => workshop.classroom_url === name),
                  this.defaultErrorHandler
                )
   }
@@ -40,7 +40,7 @@ export class ApiService {
                               url: this.config.API_ENDPOINT + '/secure/user',
                               withCredentials: true
                             })
-                            .then(response => response.data.item, this.defaultErrorHandler);
+                            .then((response:any) => response.data.item, this.defaultErrorHandler);
     }
 
     return this.cache.user;
