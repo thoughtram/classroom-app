@@ -8,6 +8,7 @@ var del = require('del');
 var serve = require('browser-sync');
 var runSequence = require('run-sequence');
 var glob = require('glob');
+var rename = require('gulp-rename');
 var ngAnnotatify = require('browserify-ngannotate');
 var ngHtml2js = require('browserify-ng-html2js');
 
@@ -23,6 +24,8 @@ var tsc = require('gulp-typescript');
 var tsProject = tsc.createProject('tsconfig.json', {
   typescript: require('typescript')
 });
+
+var argv = require('yargs').argv;
 
 var ESLINT_FILE = '.eslintrc';
 var root = 'src';
@@ -91,7 +94,7 @@ gulp.task('build', function (cb) {
     'clean:tmp',
     'tpls',
     'typescript',
-    ['data', 'eslint', 'scripts', 'images', 'scripts:vendor', 'styles', 'styles:vendor'],
+    [argv.production ? 'config:production' : 'config:local', 'data', 'eslint', 'scripts', 'images', 'scripts:vendor', 'styles', 'styles:vendor'],
     'html',
     'clean:tmp',
     cb
@@ -181,6 +184,18 @@ gulp.task('data', function () {
 gulp.task('images', function () {
   return gulp.src('./src/**/*.png')
     .pipe(gulp.dest(dist));
+});
+
+gulp.task('config:local', function () {
+  return gulp.src(tmp + '/app/common/config_local.js')
+    .pipe(rename('config.js'))
+    .pipe(gulp.dest(tmp + '/app/common/'));
+});
+
+gulp.task('config:production', function () {
+  return gulp.src(tmp + '/app/common/config_production.js')
+    .pipe(rename('config.js'))
+    .pipe(gulp.dest(tmp + '/app/common/'));
 });
 
 gulp.task('tpls', function () {

@@ -1,3 +1,3 @@
-export let CONFIG = {
-  API_ENDPOINT: 'http://127.0.0.1:8080'
-};
+// This file has no values because it's just a stub.
+// The real file is generated as part of the build step.
+export let CONFIG = {};
