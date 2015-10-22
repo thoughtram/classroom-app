@@ -88,13 +88,16 @@ function comparer(file1, file2) {
   return 0;
 }
 
+var configTask = argv.production ? 'config:production' :
+                 argv.staging ? 'config:staging' : 'config:local';
+
 gulp.task('build', function (cb) {
   runSequence(
     'clean',
     'clean:tmp',
     'tpls',
     'typescript',
-    [argv.production ? 'config:production' : 'config:local', 'data', 'eslint', 'scripts', 'images', 'scripts:vendor', 'styles', 'styles:vendor'],
+    [configTask, 'data', 'eslint', 'scripts', 'images', 'scripts:vendor', 'styles', 'styles:vendor'],
     'html',
     'clean:tmp',
     cb
@@ -188,6 +191,12 @@ gulp.task('images', function () {
 
 gulp.task('config:local', function () {
   return gulp.src(tmp + '/app/common/config_local.js')
+    .pipe(rename('config.js'))
+    .pipe(gulp.dest(tmp + '/app/common/'));
+});
+
+gulp.task('config:staging', function () {
+  return gulp.src(tmp + '/app/common/config_staging.js')
     .pipe(rename('config.js'))
     .pipe(gulp.dest(tmp + '/app/common/'));
 });

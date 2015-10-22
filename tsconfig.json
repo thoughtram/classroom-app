@@ -16,6 +16,7 @@
         "src/app/common/api_service.ts",
         "src/app/common/config_local.ts",
         "src/app/common/config_production.ts",
+        "src/app/common/config_staging.ts",
         "src/app/common/config.ts",
         "src/app/components/header/header.ts",
         "src/app/components/login/login.ts",
