@@ -6,7 +6,7 @@ export let ClassroomLoginModule = angular.module('classroom.login', [])
           <div>
           <h1 class="thtrm-m-login-headline">Welcome to classroom</h1>
           <div class="thtrm-m-box thtrm-m-loginbox">
-            <img class="thtrm-m-loginbox__avatar" width="110" src="/images/classroom-login-placeholder.png">
+            <img class="thtrm-m-loginbox__avatar" width="110" src="images/classroom-login-placeholder.png">
             <p class="thtrm-m-loginbox__text">Please log in to view workshop material.</p>
             <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login?jump_to={{ctrl.jumpTo}}">Sign in with Github</a>
           </div>
@@ -33,7 +33,7 @@ export let ClassroomLoginModule = angular.module('classroom.login', [])
           <div>
           <h1 class="thtrm-m-login-headline">Welcome to classroom</h1>
           <div class="thtrm-m-box thtrm-m-loginbox">
-            <img class="thtrm-m-loginbox__avatar" width="110" src="/images/classroom-login-placeholder.png">
+            <img class="thtrm-m-loginbox__avatar" width="110" src="images/classroom-login-placeholder.png">
             <p class="thtrm-m-loginbox__text">Please log in to view workshop material.</p>
             <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login">Sign in with Github</a>
           </div>
