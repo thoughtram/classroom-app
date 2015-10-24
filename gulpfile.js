@@ -110,6 +110,7 @@ gulp.task('build', function (cb) {
 gulp.task('build:prod', function (cb) {
   runSequence(
     'build',
+    'cname',
     'scripts:prod',
     'styles:prod',
     'clean:dist:app',
@@ -209,6 +210,11 @@ gulp.task('config:production', function () {
   return gulp.src(tmp + '/app/common/config_production.js')
     .pipe(rename('config.js'))
     .pipe(gulp.dest(tmp + '/app/common/'));
+});
+
+gulp.task('cname', function () {
+  return gulp.src('CNAME')
+    .pipe(gulp.dest(dist));
 });
 
 gulp.task('tpls', function () {
