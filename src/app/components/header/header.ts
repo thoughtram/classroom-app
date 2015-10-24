@@ -14,7 +14,7 @@ export let ClassroomHeaderModule = angular.module('classroom.header', [])
               <div class="thtrm-m-dropdown__menu">
                 <ul class="thtrm-m-dropdown__menu__list">
                   <li class="thtrm-m-dropdown__menu__item">Signed in as {{ctrl.user.login}}</li>
-                  <li class="thtrm-m-dropdown__menu__item"><a href="/logout">Sign out</a></li>
+                  <li class="thtrm-m-dropdown__menu__item"><a href="{{ctrl.apiEndpoint}}/logout">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -22,7 +22,8 @@ export let ClassroomHeaderModule = angular.module('classroom.header', [])
         </div>
       </header>`,
       controllerAs: 'ctrl',
-      controller: function (apiService: ApiService) {
+      controller: function (apiService: ApiService, config: any) {
+        this.apiEndpoint = config.API_ENDPOINT;
         apiService
           .getUser()
           .then((user: any) => this.user = user);
