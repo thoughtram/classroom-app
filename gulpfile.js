@@ -9,6 +9,7 @@ var serve = require('browser-sync');
 var runSequence = require('run-sequence');
 var glob = require('glob');
 var rename = require('gulp-rename');
+var order = require('gulp-order');
 var ngAnnotatify = require('browserify-ngannotate');
 var ngHtml2js = require('browserify-ng-html2js');
 
@@ -64,7 +65,7 @@ function resolveGlob(pattern) {
   });
 }
 
-var order = paths.vendor.css
+var file_order = paths.vendor.css
               .concat(paths.vendor.js)
               .map(function (file) {
                 return path.basename(file);
@@ -72,8 +73,8 @@ var order = paths.vendor.css
 
 function comparer(file1, file2) {
 
-  var idx1 = order.indexOf(file1);
-  var idx2 = order.indexOf(file2);
+  var idx1 = file_order.indexOf(file1);
+  var idx2 = file_order.indexOf(file2);
 
   if (idx1 > -1 && idx2 > -1) {
     return idx1 < idx2 ? -1 : 1;
@@ -128,7 +129,7 @@ gulp.task('clean:tmp', function () {
 });
 
 gulp.task('clean:dist:app', function () {
-  return gulp.src(['dist/app.js', 'dist/app'].concat(order.map(function (file) {
+  return gulp.src(['dist/app.js', 'dist/app'].concat(file_order.map(function (file) {
     return path.join('dist', file);
   })))
     .pipe(vinylPaths(del));
@@ -171,6 +172,7 @@ gulp.task('scripts:vendor', function () {
 
 gulp.task('scripts:prod', function () {
   return gulp.src(path.join(dist, patterns.js))
+    .pipe(order(file_order))
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(dist));
