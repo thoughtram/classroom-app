@@ -49,7 +49,10 @@ var paths = {
   tpls: path.join(root, '**/*.tpl.html'),
   vendor: {
     css: [],
-    js: ['node_modules/angular-ui-router/release/angular-ui-router.js']
+    js: [
+      'node_modules/angular/angular.min.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.min.js'
+    ]
   }
 };
 
@@ -62,7 +65,6 @@ function resolveGlob(pattern) {
 }
 
 var order = paths.vendor.css
-              .concat(['app.js'])
               .concat(paths.vendor.js)
               .map(function (file) {
                 return path.basename(file);

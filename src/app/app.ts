@@ -1,5 +1,4 @@
 /// <reference path='../../dts/angular/angular.d.ts' />
-import * as angular from 'angular';
 import {CONFIG} from './common/config';
 import {ApiService} from './common/api_service';
 import {ClassroomHeaderModule} from './components/header/header';
