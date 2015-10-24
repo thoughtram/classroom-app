@@ -21,9 +21,9 @@ app.run((apiService: ApiService, $state: any, $location: ng.ILocationService, $q
   apiService.setDefaultErrorHandler((response) => {
     let path = $location.path();
     // it's important to check for the /login page here. Otherwise it may be
-    // that we get another back a 401 when we are already on the /login page
+    // that we get another failed call but are already on the /login page
     // which would redirect to /login twice and then set jump_to=/login
-    if (response.status === 401 && path.indexOf('login') === -1) {
+    if (path.indexOf('login') === -1) {
       $state.go('login', {jump_to: $location.path() });
     }
     return $q.reject(response);
