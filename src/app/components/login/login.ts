@@ -8,7 +8,7 @@ export let ClassroomLoginModule = angular.module('classroom.login', [])
           <div class="thtrm-m-box thtrm-m-loginbox">
             <img class="thtrm-m-loginbox__avatar" width="110" src="/images/classroom-login-placeholder.png">
             <p class="thtrm-m-loginbox__text">Please log in to view workshop material.</p>
-            <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login-redirect?jump_to={{ctrl.jumpTo}}">Sign in with Github</a>
+            <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login?jump_to={{ctrl.jumpTo}}">Sign in with Github</a>
           </div>
           </div>
         </div>`,
@@ -35,7 +35,7 @@ export let ClassroomLoginModule = angular.module('classroom.login', [])
           <div class="thtrm-m-box thtrm-m-loginbox">
             <img class="thtrm-m-loginbox__avatar" width="110" src="/images/classroom-login-placeholder.png">
             <p class="thtrm-m-loginbox__text">Please log in to view workshop material.</p>
-            <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login-redirect">Sign in with Github</a>
+            <a class="login-button" title="Sign in with GitHub" ng-href="{{ctrl.apiEndpoint}}/login">Sign in with Github</a>
           </div>
           <p class="thtrm-m-loginbox__text thtrm-m-loginbox__text--fail">Pity! Looks like you haven't attended any of our classes.<br>Otherwise drop us a line at hello@thoughtram.io</p>
           </div>
