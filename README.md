@@ -17,7 +17,11 @@ gulp serve --staging
 #### Local (requires local classroom-api backend)
 
 ```
-gulp serve --staging
+gulp serve --local
 ```
 
-## Build the app (coming soon)
+## Deploy the app
+
+```
+./deploy.sh
+```
