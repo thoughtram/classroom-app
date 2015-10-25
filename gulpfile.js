@@ -49,7 +49,9 @@ var paths = {
   spec: path.join(root, '**/*.spec.js'),
   tpls: path.join(root, '**/*.tpl.html'),
   vendor: {
-    css: [],
+    css: [
+      'node_modules/materialize-css/bin/materialize.css'
+    ],
     js: [
       'node_modules/angular/angular.min.js',
       'node_modules/angular-ui-router/release/angular-ui-router.min.js'

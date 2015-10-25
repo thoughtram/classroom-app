@@ -39,6 +39,7 @@
     "yargs": "^3.29.0"
   },
   "dependencies": {
-    "angular": "^1.4.6"
+    "angular": "^1.4.6",
+    "materialize-css": "^0.97.1"
   }
 }

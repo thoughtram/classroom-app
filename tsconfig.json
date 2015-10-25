@@ -19,6 +19,7 @@
         "src/app/common/config_staging.ts",
         "src/app/common/config.ts",
         "src/app/components/header/header.ts",
+        "src/app/components/loading_spinner/loading_spinner.ts",
         "src/app/components/login/login.ts",
         "src/app/components/slidedeck/location_patchup_service.ts",
         "src/app/components/slidedeck/slidedeck.ts",

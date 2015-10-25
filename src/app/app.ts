@@ -6,6 +6,8 @@ import {ClassroomWorkshopListModule} from './components/workshop_list/workshop_l
 import {ClassroomWorkshopModule} from './components/workshop/workshop';
 import {ClassroomSlidedeckModule} from './components/slidedeck/slidedeck';
 import {ClassroomLoginModule} from './components/login/login';
+import {ClassroomLoadingSpinnerModule} from './components/loading_spinner/loading_spinner';
+
 
 var app = angular.module('classroom', [
   'ui.router',
@@ -13,7 +15,8 @@ var app = angular.module('classroom', [
   ClassroomWorkshopListModule.name,
   ClassroomWorkshopModule.name,
   ClassroomSlidedeckModule.name,
-  ClassroomLoginModule.name
+  ClassroomLoginModule.name,
+  ClassroomLoadingSpinnerModule.name
 ]);
 
 app.service('apiService', ApiService);
