@@ -12,7 +12,7 @@ export let ClassroomWorkshopListModule = angular.module('classroom.workshop_list
             <li ng-repeat="workshop in ctrl.workshops">
                 <a class="thtrm-m-course-box thtrm-m-course-box--big"
                    ng-class="{ 'thtrm-m-course-box--disabled':!workshop.enabled }"
-                   ng-href="#/class/{{workshop.id}}">
+                   ng-href="{{ ctrl.createWorkshopLink(workshop) }}">
                 <div class="thtrm-m-course-box__banner">
                 </div>
                 <div class="thtrm-m-course-box__content">
@@ -27,6 +27,8 @@ export let ClassroomWorkshopListModule = angular.module('classroom.workshop_list
         apiService
           .getWorkshops()
           .then((workshops:any) => this.workshops = workshops);
+
+          this.createWorkshopLink = (workshop: any) => workshop.enabled ? '#/class/' + workshop.id : '#'
       }
   };
 })

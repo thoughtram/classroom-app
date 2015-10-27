@@ -336,6 +336,8 @@ body {
 
 .thtrm-m-course-box--disabled {
   opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .thtrm-m-course-box--big .thtrm-m-course-box__banner {
