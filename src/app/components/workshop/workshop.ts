@@ -20,17 +20,31 @@ export let ClassroomWorkshopModule = angular.module('classroom.workshop', [])
           </li>
         </ul>`,
       controllerAs: 'ctrl',
-      controller: function (apiService: ApiService, $stateParams: any) {
-        apiService
-          .getWorkshop($stateParams.className)
-          .then((workshop:any) => this.workshop = workshop);
-      }
+      bindToController: {
+        workshop: '='
+      },
+      scope: {},
+      controller: function () {}
   };
 })
 .config(($stateProvider: any) => {
   $stateProvider
     .state('default.workshop', {
       url: '/class/:className',
-      template:'<cr-workshop></cr-workshop>'
+      template:'<cr-workshop workshop="ctrl.workshop"></cr-workshop>',
+      controller: function (workshop: any) { this.workshop = workshop; },
+      controllerAs: 'ctrl',
+      resolve: {
+        workshop: function (apiService: ApiService, $q: ng.IQService, $stateParams: any) {
+          return apiService
+                    .getWorkshop($stateParams.className)
+                    .then((workshop:any) => {
+                      if (!workshop.enabled) {
+                        return $q.reject();
+                      }
+                      return workshop;
+                    });
+        }
+      }
     });
 });
