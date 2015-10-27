@@ -93,6 +93,13 @@ function comparer(file1, file2) {
   return 0;
 }
 
+function getUuid () {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+  });
+}
+
 var configTask = argv.production ? 'config:production' :
                  argv.staging ? 'config:staging' : 'config:local';
 
@@ -176,7 +183,7 @@ gulp.task('scripts:vendor', function () {
 gulp.task('scripts:prod', function () {
   return gulp.src(path.join(dist, patterns.js))
     .pipe(order(file_order))
-    .pipe(concat('app.min.js'))
+    .pipe(concat('app-' + getUuid() + '.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(dist));
 });
@@ -231,7 +238,7 @@ gulp.task('styles:vendor', function () {
 
 gulp.task('styles:prod', function () {
   return gulp.src(path.join(dist, patterns.css))
-    .pipe(concat('app.min.css'))
+    .pipe(concat('app-' + getUuid() + '.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest(dist))
 });
