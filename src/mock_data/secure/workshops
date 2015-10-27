@@ -1,0 +1,32 @@
+{
+  "items": [{
+    "id": "mock-master-class",
+    "title": "Mock Master Class",
+    "description": "Learn how to mock",
+    "decks": [
+      {
+        "id": "mock-the-frontend",
+        "title": "Mock the frontend"
+      },
+      {
+        "id": "mock-the-backend",
+        "title": "Mock the backend"
+      }
+    ]
+  },{
+    "id": "foo-master-class",
+    "title": "Foo Master Class",
+    "description": "Learn how to foo",
+    "enabled": true,
+    "decks": [
+      {
+        "id": "foo-the-frontend",
+        "title": "Foo the frontend"
+      },
+      {
+        "id": "foo-the-backend",
+        "title": "Foo the backend"
+      }
+    ]
+  }]
+}
