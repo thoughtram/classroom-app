@@ -7,7 +7,7 @@ import { ApiService } from '../../common/api_service';
   .directive('crSlidedeck', () => {
     return {
         template: `
-          <a class="thtrm-m-back-button" ng-href="#/class/{{ctrl.className}}">&larr; Overview</a>
+          <a class="thtrm-m-back-button" ng-href="#/class/{{ctrl.workshop.id}}">&larr; Overview</a>
           <iframe
             src="{{ctrl.iframeSrc}}"
             width="100%" height="100%">
@@ -15,17 +15,22 @@ import { ApiService } from '../../common/api_service';
         controllerAs: 'ctrl',
         controller: function (config: any, $stateParams: any, $sce: ng.ISCEService, apiService: ApiService) {
 
-          // That's a bit of a hack. We can't figure out if the iframe failed
-          // to load when the user isn't logged in. The same origin policy prevents
-          // us from getting such insights.
-          // Instead we figure out if the user is logged in by trying to use
-          // the API. If it fails, the global error handler will do the redirect
-          // for us.
-          apiService.getUser();
-
-          this.className = $stateParams.className;
-          var pageFragment = $stateParams.page ? '#/' + $stateParams.page : '';
-          this.iframeSrc = $sce.trustAsResourceUrl(config.API_ENDPOINT + '/secure/'+ $stateParams.className + '/' + $stateParams.deckName + '/index.html' + pageFragment);
+          // If this fails because the user isn't logged in, our default error handler
+          // will take care of automatically redirecting to /login. It's also the only
+          // way to handle this as the same origin policy prevents us from getting
+          // any insights wether the iframe could be loaded or not.
+          apiService
+            .getWorkshop($stateParams.className)
+            .then((workshop:any) => {
+              //TODO: could use a polyfill to use `find` here
+              var decks = workshop.decks.filter((deck: any) => deck.id === $stateParams.deckName);
+              if (decks.length > 0) {
+                this.deck = decks[0];
+                this.workshop = workshop;
+                var pageFragment = $stateParams.page ? '#/' + $stateParams.page : '';
+                this.iframeSrc = $sce.trustAsResourceUrl(config.API_ENDPOINT + this.deck.path + pageFragment);
+              }
+            })
         }
     };
   })
