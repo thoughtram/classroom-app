@@ -26,7 +26,7 @@ export class ApiService {
   getWorkshop (name: string) {
     return this.getWorkshops()
                .then(
-                 (workshops: Array<any>) => (<any>workshops).find((workshop:any) => workshop.classroom_url === name),
+                 (workshops: Array<any>) => (<any>workshops).find((workshop:any) => workshop.id === name),
                  this.defaultErrorHandler
                )
   }

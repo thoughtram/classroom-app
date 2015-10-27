@@ -9,7 +9,7 @@ export let ClassroomWorkshopModule = angular.module('classroom.workshop', [])
         <p class="thtrm-m-course-description">{{ctrl.workshop.description}}</p>
         <ul class="thtrm-m-course-list">
           <li ng-repeat="deck in ctrl.workshop.decks">
-            <a ng-href="#/class/{{ctrl.workshop.classroom_url}}/{{deck.path}}" class="thtrm-m-course-box">
+            <a ng-href="#/class/{{ctrl.workshop.id}}/{{deck.path}}" class="thtrm-m-course-box">
               <div class="thtrm-m-course-box__banner">
               </div>
               <div class="thtrm-m-course-box__content">
