@@ -53,6 +53,7 @@ var paths = {
       'node_modules/materialize-css/bin/materialize.css'
     ],
     js: [
+      'node_modules/es6-shim/es6-shim.min.js',
       'node_modules/angular/angular.min.js',
       'node_modules/angular-ui-router/release/angular-ui-router.min.js'
     ]
