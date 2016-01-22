@@ -1,7 +1,6 @@
 /// <reference path='../../dts/angular/angular.d.ts' />
 import {CONFIG} from './common/config';
 import {ApiService} from './common/api_service';
-import {ClassroomHeaderModule} from './components/header/header';
 import {ClassroomWorkshopListModule} from './components/workshop_list/workshop_list';
 import {ClassroomWorkshopModule} from './components/workshop/workshop';
 import {ClassroomSlidedeckModule} from './components/slidedeck/slidedeck';
@@ -11,10 +10,11 @@ import {ClassroomLoadingSpinnerModule} from './components/loading_spinner/loadin
 import 'reflect-metadata';
 import {adapter} from './upgrade_adapter';
 
+import {ClassroomHeader} from './components/header/header';
+
 
 var app = angular.module('classroom', [
   'ui.router',
-  ClassroomHeaderModule.name,
   ClassroomWorkshopListModule.name,
   ClassroomWorkshopModule.name,
   ClassroomSlidedeckModule.name,
@@ -54,6 +54,9 @@ app.config(($stateProvider: any, $urlRouterProvider: any) => {
     $urlRouterProvider.otherwise('/dashboard');
 });
 
+app.directive('crHeader', adapter.downgradeNg2Component(ClassroomHeader));
+adapter.upgradeNg1Provider('apiService', {asToken: ApiService})
+adapter.upgradeNg1Provider('config', {asToken: 'config'})
 adapter.bootstrap(document.body, ['classroom'], {
   strictDi: true
 });
