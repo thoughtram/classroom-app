@@ -8,6 +8,9 @@ import {ClassroomSlidedeckModule} from './components/slidedeck/slidedeck';
 import {ClassroomLoginModule} from './components/login/login';
 import {ClassroomLoadingSpinnerModule} from './components/loading_spinner/loading_spinner';
 
+import 'reflect-metadata';
+import {adapter} from './upgrade_adapter';
+
 
 var app = angular.module('classroom', [
   'ui.router',
@@ -49,4 +52,8 @@ app.config(($stateProvider: any, $urlRouterProvider: any) => {
     });
 
     $urlRouterProvider.otherwise('/dashboard');
+});
+
+adapter.bootstrap(document.body, ['classroom'], {
+  strictDi: true
 });
