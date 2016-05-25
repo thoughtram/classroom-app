@@ -102,7 +102,7 @@ function getUuid () {
 }
 
 var configTask = argv.production ? 'config:production' :
-                 argv.staging ? 'config:staging' :
+                 argv.dev ? 'config:dev' :
                  argv.mock ? 'config:mock' : 'config:local';
 
 gulp.task('build', function (cb) {
@@ -222,8 +222,8 @@ gulp.task('config:local', function () {
     .pipe(gulp.dest(tmp + '/app/common/'));
 });
 
-gulp.task('config:staging', function () {
-  return gulp.src(tmp + '/app/common/config_staging.js')
+gulp.task('config:dev', function () {
+  return gulp.src(tmp + '/app/common/config_dev.js')
     .pipe(rename('config.js'))
     .pipe(gulp.dest(tmp + '/app/common/'));
 });
