@@ -6,18 +6,15 @@ import {
   expect, it, xit,
   async, inject
 } from '@angular/core/testing';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { AppComponent } from './app.component';
+import { APP_PROVIDERS } from './app.providers';
 
-beforeEachProviders(() => [AppComponent]);
+beforeEachProviders(() => [AppComponent, HTTP_PROVIDERS, APP_PROVIDERS]);
 
 describe('App: ClassroomFrontend', () => {
   it('should create the app',
       inject([AppComponent], (app: AppComponent) => {
     expect(app).toBeTruthy();
-  }));
-
-  it('should have as title \'app works!\'',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app.title).toEqual('app works!');
   }));
 });

@@ -1,3 +1,6 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Classroom</h1>
+<ul>
+  <li *ngFor="let course of courses | async">
+    {{course.title}}
+  </li>
+</ul>
