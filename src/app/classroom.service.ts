@@ -8,7 +8,7 @@ export class ClassroomService {
   constructor(private http: Http, @Inject(CLASSROOM_API_URL) private apiUrl) {}
 
   getCourses() {
-    return this.http.get(`${this.apiUrl}/workshops`)
+    return this.http.get(`${this.apiUrl}/api/workshops`)
                     .map(res => res.json())
                     .map(data => data.items);
   }
