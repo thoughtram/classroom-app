@@ -1,13 +1,13 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { bootstrapModule } from '@angular/core';
+import { browserDynamicPlatform } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { AppComponent, environment } from './app/';
-import { APP_PROVIDERS } from './app/app.providers';
+import { environment } from './app/';
+import { ApplicationModule } from './app/app.module';
+import 'rxjs/add/operator/map';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [
-  APP_PROVIDERS
-]);
+bootstrapModule(ApplicationModule, browserDynamicPlatform());
 

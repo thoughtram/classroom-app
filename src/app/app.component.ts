@@ -1,23 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { ClassroomService } from './classroom.service';
-import { Course } from './models/course';
-import 'rxjs/add/operator/map';
+import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: 'app.component.html',
+  template: `
+    <h1>Classroom</h1>
+    <router-outlet></router-outlet>
+  `,
   styleUrls: ['app.component.css']
 })
-export class AppComponent implements OnInit {
-
-  courses: Observable<Array<Course>>;
-
-  constructor(private http: Http, private classroomService: ClassroomService) {}
-
-  ngOnInit() {
-    this.courses = this.classroomService.getCourses();
-  }
-}
+export class AppComponent {}
