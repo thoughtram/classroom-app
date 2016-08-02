@@ -4,9 +4,7 @@ import { CLASSROOM_API_URL } from '../app.tokens';
 @Component({
   moduleId: module.id,
   selector: 'app-login',
-  template: `
-    <a href="{{apiUrl + '/login'}}">Login with GitHub</a>
-  `,
+  templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
 export class LoginComponent {

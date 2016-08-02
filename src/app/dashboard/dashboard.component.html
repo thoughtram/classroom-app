@@ -1,5 +1,12 @@
-<ul>
+<ul class="thtrm-m-course-list thtrm-m-course-list--big">
   <li *ngFor="let course of courses | async">
-    {{course.title}}
+      <a class="thtrm-m-course-box thtrm-m-course-box--big">
+      <div class="thtrm-m-course-box__banner">
+      </div>
+      <div class="thtrm-m-course-box__content">
+        <h4 class="thtrm-m-course-box__headline">{{course.title}}</h4>
+        <p class="thtrm-m-course-box__description">{{course.description}}</p>
+      </div>
+    </a>
   </li>
 </ul>
