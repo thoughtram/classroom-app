@@ -3,7 +3,7 @@ echo -e "\033[0;32mDeploying new classroom app...\033[0m"
 
 echo -e "\033[0;32mBuilding dist for production...\033[0m"
 
-gulp build:prod --production
+npx gulp build:prod --production
 
 echo -e "\033[0;32mDeploying...\033[0m"
 
