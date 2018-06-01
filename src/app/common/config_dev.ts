@@ -1,3 +1,3 @@
 export let CONFIG = {
-  API_ENDPOINT: 'http://classroom-api-dev.herokuapp.com'
+  API_ENDPOINT: 'https://classroom-api-dev.herokuapp.com'
 };
