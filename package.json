@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "angular": "^1.4.6",
-    "angular-ui-router": "^0.2.15",
+    "angular-ui-router": "^0.3.2",
     "es6-shim": "^0.33.13",
     "materialize-css": "^0.97.1"
   }
